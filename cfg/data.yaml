@@ -1,0 +1,81 @@
+data:
+  VGGSound:
+    root: ${DATASET}/VGGSound/video
+
+  ExtractedVGG_train:
+    data: ${DATASET}/VGGSound/video
+    tsv: ${TSV}/vgg-train.tsv
+    latent: ${H5}/vggsound_train.h5
+
+  ExtractedVGG_test:
+    tag: test
+    data: ${DATASET}/VGGSound/video
+    gt_cache: ../MMAudio-precomputed-results/vggsound-test-eval-cache
+    tsv: ${TSV}/vgg-test.tsv
+    latent: ${H5}/vggsound_test.h5
+
+  ExtractedVGG_val:
+    tag: val
+    data: ${DATASET}/VGGSound/video
+    gt_cache: ../MMAudio-precomputed-results/vggsound-test-eval-cache
+    tsv: ${TSV}/vgg-val.tsv
+    latent: ${H5}/vggsound_val.h5
+
+  AudioCaps_train:
+    data: ${DATASET}/audiocaps/audiocaps_data/data
+    tsv: ${TSV}/audiocaps-train.tsv
+    tsv_clip: ${TSV}/audiocaps-train_clip.tsv
+    latent: ${H5}/audiocaps_train.h5
+
+  AudioSetSL:
+    data: ${DATASET}/WavCaps/Zip_files/AudioSet_SL/AudioSet_SL_flac
+    tsv: ${TSV}/audioset_sl_corrected.tsv
+    tsv_clip: ${TSV}/audioset_sl_clip.tsv
+    latent: ${H5}/audioset_sl.h5
+
+  BBCSound:
+    data: ${DATASET}/WavCaps/Zip_files/BBC_Sound_Effects/BBC_Sound_Effects_flac
+    tsv: ${TSV}/bbcsound_corrected.tsv
+    tsv_clip: ${TSV}/bbcsound_clip.tsv
+    latent: ${H5}/bbcsound.h5
+
+  FreeSound:
+    data: ${DATASET}/WavCaps/Zip_files/FreeSound/FreeSound_flac
+    tsv: ${TSV}/freesound_corrected.tsv
+    tsv_clip: ${TSV}/freesound_clip.tsv
+    latent: ${H5}/freesound.h5
+
+  Clotho_train:
+    data: ${DATASET}/Clotho/development
+    tsv: ${TSV}/clotho_train.tsv
+    tsv_clip: ${TSV}/clotho_train_clip.tsv
+    latent: ${H5}/clotho_train.h5
+
+  Example_video:
+    data: ./example
+    tsv: ${TSV}/example_video.tsv
+    latent: ${H5}/example_video.h5
+
+  Example_audio:
+    data: ./example
+    tsv: ${TSV}/example_audio.tsv
+    tsv_clip: ${TSV}/example_audio_clip.tsv
+    latent: ${H5}/example_audio.h5
+
+  SmokeAudio:
+    data: /path/to/smoke
+    tsv: /path/to/smoke/dummy.tsv
+    latent: /path/to/smoke/smoke_audio.h5
+
+eval_data:
+  AudioCaps:
+    audio_path: ${DATASET}/audiocaps/audiocaps_data/data
+    csv_path: ${TSV}/AudioCaps_audioldm_data.csv
+
+  AudioCaps_full:
+    audio_path: ${DATASET}/audiocaps/audiocaps_data/data
+    csv_path: ${TSV}/AudioCaps_full_data.csv
+    
+  VGGSound:
+    video_path: ${DATASET}/VGGSound/video
+    csv_path: ${DATASET}/VGGSound/vggsound.csv

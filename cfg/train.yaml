@@ -1,0 +1,56 @@
+# Train config (loaded at train)
+
+train_mode: base
+
+train_batch:
+  vel_ratio: 0.75
+
+vgg_oversample_rate:
+  small: 5
+  medium: 5
+  large: 3
+
+output_interval:
+  log: 200 # output train loss etc
+  eval: 20000 # evaluate current model and output metrics
+  save_eval: 60000 # save the generated videos and audios during evals
+  save_weights: 10000 # save model weights
+  save_checkpoint: 10000 # save weight, schedular, ema, etc
+save_copy_iterations: []
+
+batch_size: 512 # total
+eval_batch_size: 32 # per-GPU
+
+num_iterations: 40_000 # FoleyDash 改名后 pipeline 验证 run (原 production=300_000, 见 train.yaml.base_orig)
+learning_rate: 1.0e-4
+linear_warmup_steps: 1_000
+
+lr_schedule:
+  mode: step
+  steps: [200_000, 250_000]
+  gamma: 0.1
+
+clip_grad_norm: 1.0
+
+AdamW:
+  betas: [0.9, 0.95]
+  weight_decay: 1.0e-6
+
+mixin: 0.1
+
+CFG_decay:
+  t: 0.8 # above such t, CFG rate decays
+
+loss:
+  p: 1.0
+  eps: 0.01
+
+time_schedule:
+  # log-normal sample
+  mean: -0.4
+  std: 1.0
+
+  midtime:
+    exponential:
+      start_point: 1/10
+      end_point: 1/500

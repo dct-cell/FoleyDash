@@ -1,0 +1,12 @@
+# Eval config (loaded at train and batch_eval)
+
+dataset: ExtractedVGG_test # ExtractedVGG_test / audiocaps
+duration_s: 8
+
+weight_path: null
+
+# for inference, this is the per-GPU batch size
+batch_size: 8 # 32 noooo
+output_name: ${NFE}_NFE
+
+NFE: 4

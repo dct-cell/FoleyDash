@@ -1,0 +1,31 @@
+av
+colorlog
+cython
+einops
+gitpython
+gradio
+h5py
+huggingface_hub < 1.0.0
+librosa
+matplotlib
+nitrous-ema
+numpy
+omegaconf
+open_clip_torch
+opencv-python
+pandas
+Pillow
+requests
+resampy
+scipy
+tensorboard
+tensordict
+timm
+torchcodec
+torchdiffeq
+torchlibrosa
+tqdm
+imagebind @ git+https://github.com/hkchengrex/ImageBind.git
+laion-clap @ git+https://github.com/hkchengrex/CLAP.git
+msclap @ git+https://github.com/hkchengrex/MS-CLAP.git
+passt @ git+https://github.com/hkchengrex/passt_hear21.git

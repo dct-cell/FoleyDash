@@ -1,0 +1,19 @@
+sample_rate: 16k
+duration: 8.0 # second
+
+# per GPU
+batch_size: 8 # If error raised, decrease this value!
+num_workers: 4
+
+normalize_audio: True
+
+audio_datasets:
+  - AudioCaps_train
+  - AudioSetSL
+  - BBCSound
+  - FreeSound
+  - Clotho_train
+
+video_datasets:
+  - ExtractedVGG_test
+  - ExtractedVGG_train

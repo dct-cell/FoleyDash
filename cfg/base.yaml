@@ -1,0 +1,65 @@
+# Base config (dependency for train and eval)
+
+exp_id: default
+rundir: ./out/${exp_id}
+
+# Common base paths. Set these to your local locations before training/eval.
+# DATASET: root of the extracted datasets (e.g. .../AudioSet_extracted/dataset),
+#   containing dataset/{Clotho,audiocaps,VGGSound,WavCaps,...}.
+# H5: directory holding the pre-extracted latent/feature .h5 files (large; see
+#   latent/extract_*.py to produce them).
+# TSV / EXT_WEIGHTS: small; kept inside the repo.
+DATASET: /path/to/datasets/AudioSet_extracted/dataset
+TSV: ./tsv
+H5: /path/to/foleydash_h5
+EXT_WEIGHTS: ./ext_weights
+
+variant: small
+sample_rate: 16k
+
+cudnn_benchmark: True
+compile: False
+tf32: True
+amp: True
+weights: null
+checkpoint: null
+seed: 14159265
+num_workers: 16 # per-GPU
+pin_memory: True # set to True if your system can handle it, i.e., have enough memory
+
+NFE: 4 # Number of function evaluation
+
+# Classifier-Free Guidance
+CFG:
+  scale: 4 # For base or distill mode on training
+  null_condition_probability: 0.1
+
+min_sigma: 0.0
+
+enable_grad_scaler: False
+
+# NOTE: This DOSE NOT affect the model during inference in any way
+# they are just for the dataloader to fill in the missing data in multi-modal loading
+# to change the sequence length for the model, see networks.py
+data_dim:
+  text_seq_len: 77
+  clip_dim: 1024
+  sync_dim: 768
+  text_dim: 1024
+
+ema:
+  enable: True
+  start: 0
+  sigma_rels: [0.05, 0.1]
+  update_every: 1
+  checkpoint_every: 5_000
+  checkpoint_folder: ${rundir}/ema_ckpts
+  default_output_sigma: 0.05
+
+# checkpoint paths to external modules
+ckpt:
+  vae_16k: ${EXT_WEIGHTS}/v1-16.pth
+  vae_44k: ${EXT_WEIGHTS}/v1-44.pth
+  bigvgan_vocoder: ${EXT_WEIGHTS}/best_netG.pt
+  synchformer: ${EXT_WEIGHTS}/synchformer_state_dict.pth
+  empty_string: ${EXT_WEIGHTS}/empty_string.pth

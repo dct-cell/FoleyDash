@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Training / eval outputs
+out/
+runs/
+*.pth
+*.pt
+*.ckpt
+wandb/
+*.log
+
+# Data, features, weights (not distributed)
+ext_weights/
+tsv/
+*.h5
+*.flac
+*.wav
+*.mp4
+
+# Local config backups
+*.yaml.*
+
+# OS / editor
+.DS_Store
+.vscode/

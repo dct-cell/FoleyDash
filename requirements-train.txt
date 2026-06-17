@@ -1,0 +1,31 @@
+# FoleyDash training-only requirements
+# (av_bench 's git+ deps — imagebind/laion-clap/msclap/passt — moved out;
+# av_bench itself is stubbed via PYTHONPATH at runtime so training doesn't
+# need them. Eval metric requires those deps but runs separately.)
+av
+colorlog
+cython
+einops
+gitpython
+gradio
+h5py
+huggingface_hub < 1.0.0
+librosa
+matplotlib
+nitrous-ema
+numpy
+omegaconf
+open_clip_torch
+opencv-python
+pandas
+Pillow
+requests
+resampy
+scipy
+tensorboard
+tensordict
+timm
+torchcodec
+torchdiffeq
+torchlibrosa
+tqdm
