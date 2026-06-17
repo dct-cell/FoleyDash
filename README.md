@@ -20,11 +20,12 @@ repository is the few-step training objective and sampler.
 ```bash
 conda create -n foleydash python=3.12 -y
 conda activate foleydash
-pip install -r requirements.txt          # inference / demo
-pip install -r requirements-train.txt    # extra training dependencies
+pip install -r requirements.txt
 ```
 
-A recent CUDA-enabled PyTorch build is required. External pretrained weights
+A recent CUDA-enabled PyTorch build is required. The last four entries in
+`requirements.txt` (installed from Git) are only needed to compute evaluation
+metrics; training and the demo work without them. External pretrained weights
 (TOD VAE, BigVGAN vocoder, Synchformer) are **not** bundled — place them under
 `ext_weights/` and point `cfg/base.yaml: EXT_WEIGHTS` there. CLIP weights are
 downloaded automatically on first use.

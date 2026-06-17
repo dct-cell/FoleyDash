@@ -25,6 +25,9 @@ torchcodec
 torchdiffeq
 torchlibrosa
 tqdm
+
+# Evaluation-metric backbones (only needed to compute av_bench metrics;
+# training and inference/demo do not require these).
 imagebind @ git+https://github.com/hkchengrex/ImageBind.git
 laion-clap @ git+https://github.com/hkchengrex/CLAP.git
 msclap @ git+https://github.com/hkchengrex/MS-CLAP.git
