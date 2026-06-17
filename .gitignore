@@ -27,3 +27,6 @@ tsv/
 # OS / editor
 .DS_Store
 .vscode/
+
+# Demo gallery videos (needed for GitHub Pages site) — override the *.mp4 / *.flac ignore above
+!demo/video/**/*.mp4
